@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head></h:head>
+<h:body>
+<link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/resources/css/estilo.css" media="screen" /> 
+	<ui:define name="title">
+	    Login Fast Order
+	</ui:define>
+	<h:graphicImage library="img" name="upsystems.jpg" style="width:250px;height:100px"/>
+
+	<h:messages id="msg"/>
+	<p:growl autoUpdate="true"/>
+	
+	    <h:form id="login">
+	    	<h2>Login Fast Order Web</h2>
+	    	<h:panelGrid columns="2" cellpadding="5">
+	    	<p:outputLabel value="Login:" for="login"/>
+	    	<p:inputText id="login" value="#{loginBean.usuario}"/>
+	    	
+	    	<p:outputLabel value="Senha:" for="senha"/>
+	    	<p:password id="senha" value="#{loginBean.senha}"/>
+	    	
+	    	<p:commandButton value="Entrar" action="#{loginBean.login}" process="@form"/>
+	    	
+	    	</h:panelGrid>
+	    </h:form>
+
+</h:body>
+</html>
