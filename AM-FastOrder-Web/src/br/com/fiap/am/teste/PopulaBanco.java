@@ -57,17 +57,14 @@ public class PopulaBanco {
 		
 		ProdutoCategoria prodCat1 = new ProdutoCategoria();
 		prodCat1.setNome("bebida");
-		prodCat1.setUsuario(usuario);
 		prodCatDao.inserir(prodCat1);
 		
 		ProdutoCategoria prodCat2 = new ProdutoCategoria();
 		prodCat2.setNome("sobremesas");
-		prodCat2.setUsuario(usuario);
 		prodCatDao.inserir(prodCat2);
 		
 		ProdutoCategoria prodCat3 = new ProdutoCategoria();
 		prodCat3.setNome("entrada");
-		prodCat3.setUsuario(usuario);
 		prodCatDao.inserir(prodCat3);
 		
 		Produto prod1 = new Produto();
@@ -75,7 +72,6 @@ public class PopulaBanco {
 		prod1.setNome("Agua");
 		prod1.setDisponivel('s');
 		prod1.setPreco(3.0f);
-		prod1.setUsuario(usuario);
 		proDao.inserir(prod1);
 		
 		//bebidas
@@ -84,7 +80,6 @@ public class PopulaBanco {
 		prod2.setNome("Suco de Laranja");
 		prod2.setDisponivel('s');
 		prod2.setPreco(10.0f);
-		prod2.setUsuario(usuario);
 		proDao.inserir(prod2);
 		
 		Produto prod3 = new Produto();
@@ -92,7 +87,6 @@ public class PopulaBanco {
 		prod3.setNome("Vinho tinto");
 		prod3.setDisponivel('n');
 		prod3.setPreco(56.0f);
-		prod3.setUsuario(usuario);
 		proDao.inserir(prod3);
 		
 		//sobre
@@ -101,7 +95,6 @@ public class PopulaBanco {
 		prod4.setNome("Torta Holandesa");
 		prod4.setDisponivel('s');
 		prod4.setPreco(5.50f);
-		prod4.setUsuario(usuario);
 		proDao.inserir(prod4);
 		
 		Produto prod5 = new Produto();
@@ -109,7 +102,6 @@ public class PopulaBanco {
 		prod5.setNome("mousse de maracuja");
 		prod5.setDisponivel('n');
 		prod5.setPreco(3.75f);
-		prod5.setUsuario(usuario);
 		proDao.inserir(prod5);
 		
 		Produto prod6 = new Produto();
@@ -117,7 +109,6 @@ public class PopulaBanco {
 		prod6.setNome("brigadeirão");
 		prod6.setDisponivel('s');
 		prod6.setPreco(3.0f);
-		prod6.setUsuario(usuario);
 		proDao.inserir(prod6);
 		
 		//entrada
@@ -126,7 +117,6 @@ public class PopulaBanco {
 		prod7.setNome("salada gourmet");
 		prod7.setDisponivel('s');
 		prod7.setPreco(15.50f);
-		prod7.setUsuario(usuario);
 		proDao.inserir(prod7);
 		
 		Produto prod8 = new Produto();
@@ -134,7 +124,6 @@ public class PopulaBanco {
 		prod8.setNome("salada rosa");
 		prod8.setDisponivel('s');
 		prod8.setPreco(9.70f);
-		prod8.setUsuario(usuario);
 		proDao.inserir(prod8);
 		
 		Produto prod9 = new Produto();
@@ -142,7 +131,6 @@ public class PopulaBanco {
 		prod9.setNome("salada de palmito");
 		prod9.setDisponivel('s');
 		prod9.setPreco(16.20f);
-		prod9.setUsuario(usuario);
 		proDao.inserir(prod9);
 		
 		//Cardapio

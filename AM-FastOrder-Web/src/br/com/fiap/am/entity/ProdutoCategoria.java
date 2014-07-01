@@ -33,9 +33,6 @@ public class ProdutoCategoria implements Serializable{
 	@OneToMany(mappedBy="categoria",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<Produto> produto;
 	
-	@ManyToOne
-	@JoinColumn(name="cd_usuario")
-	private Usuario usuario;
 	
 	public ProdutoCategoria() {
 		
@@ -65,13 +62,7 @@ public class ProdutoCategoria implements Serializable{
 		this.produto = produto;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+	
 	
 	
 	

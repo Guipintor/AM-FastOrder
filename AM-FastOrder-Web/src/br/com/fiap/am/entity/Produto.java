@@ -42,9 +42,6 @@ public class Produto implements Serializable{
 	@JoinColumn(name="cd_categoria",nullable=false)
 	private ProdutoCategoria categoria;
 	
-	@ManyToOne
-	@JoinColumn(name="cd_usuario")
-	private Usuario usuario;
 	
 	public Produto(){
 		
@@ -106,13 +103,7 @@ public class Produto implements Serializable{
 		this.categoria = categoria;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 	
 	
 	

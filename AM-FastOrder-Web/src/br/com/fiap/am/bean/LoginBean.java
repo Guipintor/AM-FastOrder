@@ -41,21 +41,15 @@ public class LoginBean {
 		
 		long numero = usuDao.fazerLogin(usuario1.getLogin(), usuario1.getSenha());
 		
-		RequestContext context = RequestContext.getCurrentInstance();
 		FacesMessage msg = null;
-		boolean logou = false;
 		
 		if(numero > 0){
-			//logou = true;
 			msg = new FacesMessage(FacesMessage.SEVERITY_INFO,"Bem Vindo",usuario1.getLogin());
 			FacesContext.getCurrentInstance().addMessage(null, msg);
-			//context.addCallbackParam("Logou", logou);
 			return "cadastro";
 		}else{
-			//logou = false;
 			msg = new FacesMessage(FacesMessage.SEVERITY_WARN,"Login Invalido","Credenciais invalidas");
 			FacesContext.getCurrentInstance().addMessage(null, msg);
-			//context.addCallbackParam("Logou", logou);
 			return "login";
 		}
 		

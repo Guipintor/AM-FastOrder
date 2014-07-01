@@ -12,9 +12,59 @@
 	    Cadastro
 	</ui:define>
 	<ui:define name="content">
-	<h:messages />
+	<h:messages id="msg"/>
 	<p:growl autoUpdate="true"/>
-	    Pagina de Cadastro
+	    <h:panelGrid columns="3" cellpadding="5">
+	    	<p:commandButton value="Cadastrar Categoria" type="button" onclick="PF('dlg1').show();"/>
+	    	<p:commandButton value="Cadastrar Produto" type="button" onclick="PF('dlg2').show();"/>
+	    </h:panelGrid>
+	    
+	    <!-- Cadastro de categorias -->
+	   <p:dialog header="Categoria" widgetVar="dlg1" minHeight="40" height="100"> 
+		    <h:form>
+			    <h:panelGrid columns="2" cellpadding="5">
+			    	<h:outputLabel value="Nome da Categoria:" for="nome"/>
+			    	<p:inputText required="true" requiredMessage="Preencha o nome" id="nome" value="#{cadastroCategoriaBean.categoria.nome}">
+			    		<p:ajax  event="blur"/>
+			    	</p:inputText>
+			    	
+			    		<p:commandButton value="Cadastrar" actionListener="#{cadastroCategoriaBean.cadastrarCategoria}" />
+			    </h:panelGrid>
+		    </h:form>	
+	   </p:dialog>
+	   
+	   <!-- Cadastro dos Produtos -->
+	   <p:dialog header="produto" widgetVar="dlg2" minHeight="80" height="100" >
+	   		<h:form>
+	   			<h:panelGrid columns="2" cellpadding="5">
+	   				
+	   				<h:outputLabel value="Nome" for="nome"/>
+	   				<p:inputText required="true" requiredMessage="Preencha o nome" id="nome" value="">
+	   					<p:ajax event="blur"/>
+	   				</p:inputText>
+	   				
+	   				<h:outputLabel value="Descricao" for="descricao"/>
+	   				<p:inputTextarea rows="6" cols="33" id="descricao" value="">
+	   					<p:ajax event="blur"/>
+	   				</p:inputTextarea>
+	   				
+	   				<h:outputLabel value="Preco" for="preco"/>
+	   				<p:spinner required="true" requiredMessage="Preencha o preço" id="preco" showMode="button"  keypadOnly="true" prefix="R$" min="0" max="99999" stepFactor="0.25">
+	   					<p:ajax event="blur"/>
+	   				</p:spinner>
+	   				
+	   				<h:outputLabel value="Disponivel" for="disp"/>
+	   				<p:selectBooleanCheckbox required="true" requiredMessage="Preencha o campo de disponibilidade" id="disp" value=""  >
+	   					<p:ajax event="blur"/>
+	   				</p:selectBooleanCheckbox>
+	   				
+	   				<h:outputLabel value="Imagem" for="img"/>
+	   				
+	   				
+	   			</h:panelGrid>
+	   		</h:form>
+	   </p:dialog>
+	   
 	</ui:define>
 </ui:composition>
 </html>

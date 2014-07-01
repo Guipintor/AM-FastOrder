@@ -32,6 +32,12 @@ public class UsuarioDAOImpl extends DAOImpl<Usuario, Integer> implements Usuario
 		}
 		return resultado;
 	}
+
+	@Override
+	public List<Usuario> buscarTodos() {
+		TypedQuery<Usuario> query = em.createQuery("From Usuario u", Usuario.class);
+		return query.getResultList();
+	}
 	
 	
 
