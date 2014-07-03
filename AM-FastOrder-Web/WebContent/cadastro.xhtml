@@ -20,6 +20,7 @@
 	    </h:panelGrid>
 	    
 	    <!-- Cadastro de categorias -->
+	      
 	   <p:dialog header="Categoria" widgetVar="dlg1" minHeight="40" height="100"> 
 		    <h:form>
 			    <h:panelGrid columns="2" cellpadding="5">
@@ -39,28 +40,42 @@
 	   			<h:panelGrid columns="2" cellpadding="5">
 	   				
 	   				<h:outputLabel value="Nome" for="nome"/>
-	   				<p:inputText required="true" requiredMessage="Preencha o nome" id="nome" value="">
+	   				<p:inputText required="true" requiredMessage="Preencha o nome" id="nome" value="#{cadastroProdutoBean.produto.nome}">
 	   					<p:ajax event="blur"/>
 	   				</p:inputText>
 	   				
 	   				<h:outputLabel value="Descricao" for="descricao"/>
-	   				<p:inputTextarea rows="6" cols="33" id="descricao" value="">
+	   				<p:inputTextarea rows="6" cols="33" id="descricao" value="#{cadastroProdutoBean.produto.descricao}">
 	   					<p:ajax event="blur"/>
 	   				</p:inputTextarea>
 	   				
 	   				<h:outputLabel value="Preco" for="preco"/>
-	   				<p:spinner required="true" requiredMessage="Preencha o preço" id="preco" showMode="button"  keypadOnly="true" prefix="R$" min="0" max="99999" stepFactor="0.25">
+	   				<p:spinner required="true" requiredMessage="Preencha o preço" id="preco" showMode="button"  keypadOnly="true" prefix="R$" min="0" max="99999" stepFactor="0.25" value="#{cadastroProdutoBean.produto.preco}">
 	   					<p:ajax event="blur"/>
 	   				</p:spinner>
 	   				
 	   				<h:outputLabel value="Disponivel" for="disp"/>
-	   				<p:selectBooleanCheckbox required="true" requiredMessage="Preencha o campo de disponibilidade" id="disp" value=""  >
-	   					<p:ajax event="blur"/>
-	   				</p:selectBooleanCheckbox>
+	   				<p:selectOneRadio required="true" requiredMessage="Preencha o campo de disponibilidade" id="disp" value="#{cadastroProdutoBean.produto.disponivel}"  >
+	   					<f:selectItem itemLabel="Sim" itemValue="s"/>
+	   					<f:selectItem itemLabel="Não" itemValue="n"/>
+	   				</p:selectOneRadio>
 	   				
 	   				<h:outputLabel value="Imagem" for="img"/>
+	   				<h:form enctype="multipart/form-data">
+					    <p:growl id="messages" showDetail="true" />
+					 
+					    <p:fileUpload value="" mode="simple" disabled="true" />
+					 
+					    <p:commandButton value="Submit" ajax="false"   />
+					</h:form>
 	   				
 	   				
+	   				<h:outputLabel value="Categoria" for="categoria"/>
+	   				<p:selectOneMenu required="true" requiredMessage="Preencha a categoria" id="categoria" value="#{cadastroProdutoBean.produto.categoria.codigoCategoria}">
+	   					<f:selectItems itemValue="#{cadastroProdutoBean.lista}"/>
+	   				</p:selectOneMenu>
+	   				
+	   				<p:commandButton value="Cadastrar" actionListener="#{cadastroProdutoBean.cadastrarProduto}"/>
 	   			</h:panelGrid>
 	   		</h:form>
 	   </p:dialog>
