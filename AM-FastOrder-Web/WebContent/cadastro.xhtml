@@ -71,8 +71,8 @@
 	   				
 	   				
 	   				<h:outputLabel value="Categoria" for="categoria"/>
-	   				<p:selectOneMenu required="true" requiredMessage="Preencha a categoria" id="categoria" value="#{cadastroProdutoBean.produto.categoria}">
-	   					<f:selectItems itemValue="#{cadastroProdutoBean.lista}"/>
+	   				<p:selectOneMenu required="true" requiredMessage="Preencha a categoria" id="categoria" value="#{cadastroProdutoBean.produto.categoria.codigoCategoria}">
+	   					<f:selectItems value="#{cadastroProdutoBean.lista}" var="item" itemLabel="#{item.nome}" itemValue="#{item.codigoCategoria}"/>
 	   				</p:selectOneMenu>
 	   				
 	   				<p:commandButton value="Cadastrar" actionListener="#{cadastroProdutoBean.cadastrarProduto}"/>

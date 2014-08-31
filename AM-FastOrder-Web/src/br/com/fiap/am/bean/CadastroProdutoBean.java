@@ -1,8 +1,6 @@
 package br.com.fiap.am.bean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -14,6 +12,7 @@ import javax.persistence.EntityManager;
 
 import br.com.fiap.am.DAO.ProdutoCategoriaDAO;
 import br.com.fiap.am.DAO.ProdutoDAO;
+import br.com.fiap.am.DAOImpl.ProdutoCategoriaDAOImpl;
 import br.com.fiap.am.DAOImpl.ProdutoDAOImpl;
 import br.com.fiap.am.entity.Produto;
 import br.com.fiap.am.entity.ProdutoCategoria;
@@ -31,16 +30,18 @@ public class CadastroProdutoBean implements Serializable{
 	
 	private ProdutoCategoria categoria;
 	
-	private List<String> lista;
+	private List<ProdutoCategoria> lista;
 	
 	private ProdutoCategoriaDAO catDao;
 	
 	@PostConstruct
 	private void init(){
 		produto = new Produto();
+		produto.setCategoria(new ProdutoCategoria());
 		proDao = new ProdutoDAOImpl(em);
+		catDao = new ProdutoCategoriaDAOImpl(em);
 		//lista = new ArrayList<String>();
-		//buscar();
+		buscar();
 	}
 	
 	public void cadastrarProduto(){
@@ -50,7 +51,7 @@ public class CadastroProdutoBean implements Serializable{
 	}
 	
 	public void buscar(){
-		lista = catDao.buscarNomes();
+		lista = catDao.buscarTodos();
 	}
 
 	public Produto getProduto() {
@@ -69,11 +70,11 @@ public class CadastroProdutoBean implements Serializable{
 		this.categoria = categoria;
 	}
 
-	public List<String> getLista() {
+	public List<ProdutoCategoria> getLista() {
 		return lista;
 	}
 
-	public void setLista(List<String> lista) {
+	public void setLista(List<ProdutoCategoria> lista) {
 		this.lista = lista;
 	}
 
